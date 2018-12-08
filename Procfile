@@ -1,1 +1,1 @@
-web: python3 location_bot.py
+bot: python3 location_bot.py
