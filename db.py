@@ -63,7 +63,7 @@ class User(Base):
 
     @property
     def locations(self):
-        r = session.query(Location).filter(Location.owner == self.id).order_by("-id").limit(10)
+        r = session.query(Location).filter(Location.owner == self.id).order_by(Location.id.desc()).limit(10)
         return list(r)
 
     def __repr__(self):
