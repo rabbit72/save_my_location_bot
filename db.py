@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 
 DATABASE_URL = os.getenv("DATABASE_URL") or open("../DB_TOKEN.txt").read()
-engine = create_engine(DATABASE_URL, echo=True)
+engine = create_engine(DATABASE_URL, echo=False)
 
 Base = declarative_base()
 
