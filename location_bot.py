@@ -19,7 +19,10 @@ bot = telebot.TeleBot(BOT_TOKEN)
 @bot.message_handler(commands=["start", "help"])
 def handle_start(message):
     get_user(message)
-    bot.send_message(message.chat.id, "Welcome, I can save locations for you")
+    bot.send_message(
+        message.chat.id,
+        "Welcome, I can save locations for you\nChoose one of my commands or send me your locations",
+    )
 
 
 @bot.message_handler(
