@@ -6,9 +6,10 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-pytelegrambotapi = "*"
-sqlalchemy = "*"
-psycopg2-binary = "*"
+pytelegrambotapi = "==3.6.6"
+sqlalchemy = "==1.2.15"
+psycopg2-binary = "==2.7.6.1"
+requests = "==2.21.0"
 
 [requires]
 python_version = "3.6"
