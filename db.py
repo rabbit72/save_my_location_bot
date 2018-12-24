@@ -21,13 +21,13 @@ class Location(Base):
     owner = Column(ForeignKey("user.id"))
 
     def __init__(
-            self,
-            title=None,
-            latitude=None,
-            longitude=None,
-            image=None,
-            description=None,
-            owner=None
+        self,
+        title=None,
+        latitude=None,
+        longitude=None,
+        image=None,
+        description=None,
+        owner=None,
     ):
         self.title = title
         self.latitude = latitude
@@ -63,7 +63,12 @@ class User(Base):
 
     @property
     def locations(self):
-        r = session.query(Location).filter(Location.owner == self.id).order_by(Location.id.desc()).limit(10)
+        r = (
+            session.query(Location)
+            .filter(Location.owner == self.id)
+            .order_by(Location.id.desc())
+            .limit(10)
+        )
         return list(r)
 
     def __repr__(self):
@@ -83,13 +88,3 @@ def get_user(message):
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
-
-if __name__ == "__main__":
-    # user = User(34534543)
-    # session.add(user)
-    # session.commit()
-    # user.add_location("ddsd", [54.23424, 55.43434])
-    user = session.query(User).get(2)
-    print(user)
-    print(user.locations[0].owner)
-
