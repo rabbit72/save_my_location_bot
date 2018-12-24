@@ -67,7 +67,6 @@ class User(Base):
             session.query(Location)
             .filter(Location.owner == self.id)
             .order_by(Location.id.desc())
-            .limit(10)
         )
         return list(r)
 
