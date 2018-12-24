@@ -1,8 +1,10 @@
 import os
 from typing import Tuple
+
 import requests
+
 import telebot
-from db import get_user, Location
+from db import Location, get_user
 
 Coordinates = Tuple[float, float]
 BOT_TOKEN = os.getenv("BOT_TOKEN") or open("../BOT_TOKEN.txt").read()

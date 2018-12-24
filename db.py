@@ -1,8 +1,9 @@
 import os
-from sqlalchemy import create_engine
+
+from sqlalchemy import (Column, Float, ForeignKey, Integer, String,
+                        create_engine)
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
 
 DATABASE_URL = os.getenv("DATABASE_URL") or open("../DB_TOKEN.txt").read()
 engine = create_engine(DATABASE_URL, echo=False)
